@@ -35,6 +35,13 @@ End-to-end data analysis project using the Superstore dataset to uncover insight
 - Top 10 customers contribute a disproportionate share of revenue
 
 ---
+## 💡 Business Recommendation
+
+Discount rates above 40% consistently result in negative profit margins 
+across all regions. Immediate action: cap discounts at 20% for 
+Furniture and Office Supplies categories in Texas, Ohio, and Pennsylvania 
+— these three states alone show $50K+ in losses despite strong sales volume.
+---
 
 ## 🧠 SQL Analysis Covers
 1. Revenue & profit by region
@@ -65,6 +72,12 @@ superstore-sales-dashboard/
 │
 └── README.md
 ```
+---
+## ▶️ How to Run This Project
+1. Download dataset from `dataset/Superstore_mysql.csv`
+2. Import into MySQL using Table Data Import Wizard
+3. Run queries from `sql/analysis_queries.sql`
+4. Open `dashboard/sales_dashboard.pbix` in Power BI Desktop
 
 ---
 
