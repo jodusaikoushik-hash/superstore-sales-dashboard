@@ -24,7 +24,7 @@ End-to-end data analysis project using the Superstore dataset to uncover insight
 ---
 
 ## 📸 Dashboard Preview
-![Dashboard Preview](dashboard/dashboard.png)
+![Dashboard Preview](dashboard/DASHBOARD.PNG)
 
 ---
 
