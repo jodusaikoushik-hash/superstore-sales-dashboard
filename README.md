@@ -71,6 +71,8 @@ show $50K+ in losses despite strong sales volume.
 ---
 
 ## 📂 Project Structure
+
+```text
 superstore-sales-dashboard/
 ├── dataset/
 │   ├── Superstore_raw.csv
