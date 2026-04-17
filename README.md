@@ -32,7 +32,7 @@ This project identifies where revenue is leaking and recommends specific actions
 
 ## 📸 Dashboard Preview
 
-![Dashboard Preview](dashboard/Dashboard.png)
+![Dashboard Preview](dashboard/DASHBOARD.PNG)
 
 ---
 
