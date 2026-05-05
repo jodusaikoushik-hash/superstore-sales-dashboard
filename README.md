@@ -34,7 +34,6 @@ This project identifies where revenue is leaking and recommends specific actions
 - Removed blank rows and standardized date formats
 - Added `Profit_Margin_%` column: `= Profit/Sales × 100`
 - Added `Delivery_Days` column: `= Ship Date − Order Date`
-- Saved as `.xlsx` before SQL import
 
 ---
 
@@ -92,6 +91,7 @@ show $50K+ in losses despite strong sales volume.
 
 ## 📂 Project Structure
 
+```
 superstore-sales-dashboard/
 ├── dataset/
 │   ├── Superstore_raw.csv
@@ -102,7 +102,7 @@ superstore-sales-dashboard/
 │   ├── dashboard.png
 │   └── sales_dashboard.pbix
 └── README.md
-
+```
 ---
 
 ## ▶️ How to Run
