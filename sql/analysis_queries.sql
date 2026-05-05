@@ -16,13 +16,13 @@ SELECT
 Region,
 SUM(Sales) AS Total_Revenue,
 SUM(Profit) AS Total_Profit,
-SUM(Profit) / SUM(Sales) AS Profit_Margin
+ROUND(SUM(Profit) / SUM(Sales) * 100, 2) AS Profit_Margin_Pct
 FROM Superstore_sales
 GROUP BY Region
 ORDER BY Total_Revenue DESC;
 
 -- Q2: Which product category and sub-category is most/least profitable?
--- Helps identify most and least profitable products
+-- Identifies revenue drivers and loss-making product lines
 
 SELECT 
 Category,
@@ -42,6 +42,9 @@ SUM(Sales) AS Monthly_Sales
 FROM superstore_sales
 GROUP BY Order_Year, Order_Month_Number
 ORDER BY Order_Year, Order_Month_Number;
+
+-- Note: Order_Year and Order_Month_Number are derived columns 
+-- added during Excel preprocessing step
 
 -- Q4: Revenue contribution by customer segment(Customer segment performance)
 
