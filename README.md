@@ -30,6 +30,26 @@ This project identifies where revenue is leaking and recommends specific actions
 
 ---
 
+**Data Preparation (Excel):**
+- Removed blank rows and standardized date formats
+- Added `Profit_Margin_%` column: `= Profit/Sales × 100`
+- Added `Delivery_Days` column: `= Ship Date − Order Date`
+- Saved as `.xlsx` before SQL import
+
+---
+
+## ❓ Business Questions Answered
+
+1. Which region generates the highest revenue and profit?
+2. Which product category is most/least profitable?
+3. What is the monthly sales trend over 4 years?
+4. Which customer segment drives the most revenue?
+5. Which states have high sales but negative profit?
+6. How do discount levels impact profitability?
+7. Who are the Top 10 customers by revenue?
+
+---
+
 ## 📸 Dashboard Preview
 
 ![Dashboard Preview](dashboard/DASHBOARD.PNG)
@@ -72,7 +92,6 @@ show $50K+ in losses despite strong sales volume.
 
 ## 📂 Project Structure
 
-```text
 superstore-sales-dashboard/
 ├── dataset/
 │   ├── Superstore_raw.csv
