@@ -52,15 +52,19 @@ This project identifies where revenue is leaking and recommends specific actions
 ## 📸 Dashboard Preview
 
 ![Dashboard Preview](dashboard/DASHBOARD.PNG)
+*Dashboard showing All Years view. Hover over map bubbles to see 
+state-level profit/loss. Year slicer filters all visuals simultaneously.*
 
 ---
 
 ## 🔍 Key Business Insights
 
 - High discounts (40%+) **significantly hurt profitability** across all regions
-- **Texas, Ohio & Pennsylvania** show high sales but **negative profit**
+- **Texas, Ohio & Pennsylvania** show high sales but **negative profit** 
+  (Texas: $170K sales / −$25K profit; Ohio: $78K sales / −$17K profit)
 - Technology is the highest revenue-generating category
-- Top 10 customers contribute a disproportionate share of revenue
+- Top 10 customers spend **~$14K each on average — nearly 5x** the dataset 
+  average of ~$2.9K per customer, all concentrated in the **Consumer segment**
 
 ---
 
@@ -76,14 +80,15 @@ show $50K+ in losses despite strong sales volume.
 ## 🧠 SQL Analysis Covers
 
 | # | Business Question |
-|---|-------------------|
+|---|---|
 | 1 | Revenue & profit by region |
 | 2 | Most/least profitable categories |
 | 3 | Monthly sales trend (2014–2017) |
 | 4 | Revenue by customer segment |
 | 5 | Loss-making states |
-| 6 | Discount impact on profitability |
+| 6 | Discount impact on profitability (CTE) |
 | 7 | Top 10 customers by revenue |
+| 8 | Top 10 customer revenue concentration (% of total) |
 
 📄 Queries: [`sql/analysis_queries.sql`](sql/analysis_queries.sql)
 
