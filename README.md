@@ -52,7 +52,7 @@ This project identifies where revenue is leaking and recommends specific actions
 
 ## 📸 Dashboard Preview
 
-![Dashboard Preview](dashboard/dashboard.PNG)
+![Dashboard Preview](dashboard/dashboard.png)
 *Dashboard showing All Years view. Hover over map bubbles to see 
 state-level profit/loss. Year slicer filters all visuals simultaneously.*
 
