@@ -46,6 +46,7 @@ This project identifies where revenue is leaking and recommends specific actions
 5. Which states have high sales but negative profit?
 6. How do discount levels impact profitability?
 7. Who are the Top 10 customers by revenue?
+8. What share of total revenue do the Top 10 customers contribute?
 
 ---
 
@@ -59,21 +60,32 @@ state-level profit/loss. Year slicer filters all visuals simultaneously.*
 
 ## 🔍 Key Business Insights
 
-- High discounts (40%+) **significantly hurt profitability** across all regions
-- **Texas, Ohio & Pennsylvania** show high sales but **negative profit** 
-  (Texas: $170K sales / −$25K profit; Ohio: $78K sales / −$17K profit)
+- Revenue shows **consistent year-over-year growth** from 2014–2017
+- with visible Q4 seasonal peaks each year
+- **Consumer segment drives 50% of total revenue** ($1.16M) through 
+  volume — 409 customers vs Corporate's 236 — though revenue per 
+  customer is nearly identical across all three segments (~$2,900)
+- SQL identifies **10 states with negative profit** despite strong 
+  sales — Texas (−$25.7K), Pennsylvania (−$15.6K), and Ohio (−$17.0K) 
+  are the top 3 by loss magnitude
 - Technology is the highest revenue-generating category
-- Top 10 customers spend **~$14K each on average — nearly 5x** the dataset 
-  average of ~$2.9K per customer, all concentrated in the **Consumer segment**
+- High-discount orders (40%+) show an average margin of **−109%** — 
+  meaning the business loses more than the sale value on every such 
+  order; 933 orders fall in this band
+- Top 10 customers average **~$15.4K each — over 5x** the dataset 
+  average of ~$2,900; Sean Miller (Home Office) leads at $25K with 
+  just 5 orders
 
 ---
 
 ## 💡 Business Recommendation
 
-Discount rates above 40% consistently result in negative profit margins across 
-all regions. **Immediate action:** cap discounts at 20% for Furniture and Office 
-Supplies categories in Texas, Ohio, and Pennsylvania — these three states alone 
-show $50K+ in losses despite strong sales volume.
+Discount rates above 40% consistently result in negative profit margins 
+across all regions — 933 orders in this band show an average margin of 
+−109%. **Immediate action:** cap discounts at 20% for Furniture and 
+Office Supplies in Texas, Ohio, and Pennsylvania — these three states 
+show the largest losses ($25.7K, $17.0K, and $15.6K respectively) 
+despite strong sales volume.
 
 ---
 
@@ -113,7 +125,7 @@ superstore-sales-dashboard/
 ## ▶️ How to Run
 
 1. Download dataset from `dataset/Superstore_mysql.csv`
-2. Import into MySQL using Table Data Import Wizard
+2. Import into SQL Server using SQL Server Management Studio (SSMS) — Import Flat File Wizard
 3. Run queries from `sql/analysis_queries.sql`
 4. Open `dashboard/sales_dashboard.pbix` in Power BI Desktop
 
@@ -121,7 +133,7 @@ superstore-sales-dashboard/
 
 ## 👤 Author
 
-**Sai Koushik Jodu** — Aspiring Data Analyst | SQL • Python • Power BI  
+**Sai Koushik Jodu** —  Data Analyst | SQL • Python • Power BI  
 [LinkedIn](https://www.linkedin.com/in/jodusaikoushik) | [GitHub Portfolio](https://github.com/jodusaikoushik-hash)
 
 
