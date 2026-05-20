@@ -61,7 +61,7 @@ state-level profit/loss. Year slicer filters all visuals simultaneously.*
 ## 🔍 Key Business Insights
 
 - Revenue shows **consistent year-over-year growth** from 2014–2017
-- with visible Q4 seasonal peaks each year
+  with visible Q4 seasonal peaks each year
 - **Consumer segment drives 50% of total revenue** ($1.16M) through 
   volume — 409 customers vs Corporate's 236 — though revenue per 
   customer is nearly identical across all three segments (~$2,900)
