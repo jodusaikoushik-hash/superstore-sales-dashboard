@@ -16,13 +16,13 @@ SELECT
 Region,
 SUM(Sales) AS Total_Revenue,
 SUM(Profit) AS Total_Profit,
-ROUND(SUM(Profit) / SUM(Sales) * 100, 2) AS Profit_Margin_Pct
+SUM(Profit) / SUM(Sales) AS Profit_Margin
 FROM Superstore_sales
 GROUP BY Region
 ORDER BY Total_Revenue DESC;
 
 -- Q2: Which product category and sub-category is most/least profitable?
--- Identifies revenue drivers and loss-making product lines
+-- Helps identify most and least profitable products
 
 SELECT 
 Category,
@@ -44,7 +44,9 @@ GROUP BY Order_Year, Order_Month_Number
 ORDER BY Order_Year, Order_Month_Number;
 
 -- Note: Order_Year and Order_Month_Number are derived columns 
--- added during Excel preprocessing step
+-- added during Excel cleaning (extracted from Order_Date column).
+-- If running on raw data, replace with YEAR(Order_Date) 
+-- and MONTH(Order_Date) respectively.
 
 -- Q4: Revenue contribution by customer segment(Customer segment performance)
 
@@ -70,24 +72,26 @@ ORDER BY Total_Sales DESC;
 
 -- Q6: Impact of discount levels on profitability
 
+WITH Discount_Bands AS (
+    SELECT 
+        CASE 
+            WHEN Discount = 0     THEN '1. No Discount'
+            WHEN Discount <= 0.2  THEN '2. Low (0-20%)'
+            WHEN Discount <= 0.4  THEN '3. Medium (21-40%)'
+            ELSE                       '4. High (40%+)'
+        END AS Discount_Band,
+        Profit,
+        Sales
+    FROM superstore_sales
+)
 SELECT 
-CASE 
-    WHEN Discount = 0 THEN 'No Discount'
-    WHEN Discount <= 0.2 THEN 'Low (0-20%)'
-    WHEN Discount <= 0.4 THEN 'Medium (21-40%)'
-    ELSE 'High (40%+)'
-END AS Discount_Band,
-AVG(Profit) AS Avg_Profit,
-COUNT(*) AS Order_Count
-FROM superstore_sales
-GROUP BY 
-CASE 
-   WHEN Discount = 0 THEN 'No Discount'
-   WHEN Discount <= 0.2 THEN 'Low (0-20%)'
-   WHEN Discount <= 0.4 THEN 'Medium (21-40%)'
-   ELSE 'High (40%+)'
-END
-ORDER BY Avg_Profit DESC;
+    Discount_Band,
+    ROUND(AVG(Profit), 2)           AS Avg_Profit,
+    ROUND(AVG(Profit/Sales)*100, 2) AS Avg_Margin_Pct,
+    COUNT(*)                         AS Order_Count
+FROM Discount_Bands
+GROUP BY Discount_Band
+ORDER BY Discount_Band;
 
 -- Q7: Top 10 customers by revenue
 
@@ -100,3 +104,23 @@ FROM superstore_sales
 GROUP BY Customer_Name, Segment
 ORDER BY Total_Revenue DESC;
 
+-- Q8: What percentage of total revenue do the Top 10 customers contribute?
+
+WITH Top10 AS (
+    SELECT TOP 10 
+        Customer_Name, 
+        SUM(Sales) AS Customer_Revenue
+    FROM superstore_sales
+    GROUP BY Customer_Name
+    ORDER BY Customer_Revenue DESC
+),
+Total AS (
+    SELECT SUM(Sales) AS Total_Revenue 
+    FROM superstore_sales
+)
+SELECT 
+    ROUND(SUM(t.Customer_Revenue) / tot.Total_Revenue * 100, 2) 
+    AS Top10_Revenue_Pct
+FROM Top10 t
+CROSS JOIN Total tot
+GROUP BY tot.Total_Revenue;
